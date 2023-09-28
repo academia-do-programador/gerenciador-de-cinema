@@ -6,23 +6,7 @@
           Mais populares
         </button>
         <ng-template ngbNavContent>
-          <div class="row g-4">
-            <div
-              class="app-card-filme col-6 col-md-4 col-lg-3"
-              *ngFor="let filme of filmes"
-            >
-              <img
-                class="img-fluid rounded-3 border border-primary"
-                [src]="filme.imagem"
-              />
-
-              <div class="text-center mt-3">
-                <a class="text-decoration-none text-primary-emphasis fs-5">
-                  {{ filme.titulo }}
-                </a>
-              </div>
-            </div>
-          </div>
+          <app-lista-filmes tipoLista="populares"></app-lista-filmes>
         </ng-template>
       </li>
 
@@ -31,23 +15,7 @@
           Mais Bem Avaliados
         </button>
         <ng-template ngbNavContent>
-          <div class="row g-4">
-            <div
-              class="app-card-filme col-6 col-md-4 col-lg-3"
-              *ngFor="let filme of filmes"
-            >
-              <img
-                class="img-fluid rounded-3 border border-primary"
-                [src]="filme.imagem"
-              />
-
-              <div class="text-center mt-3">
-                <a class="text-decoration-none text-primary-emphasis fs-5">
-                  {{ filme.titulo }}
-                </a>
-              </div>
-            </div>
-          </div>
+          <app-lista-filmes tipoLista="bem-avaliados"></app-lista-filmes>
         </ng-template>
       </li>
     </ul>

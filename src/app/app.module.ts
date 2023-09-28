@@ -7,9 +7,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 import { HomeComponent } from './views/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ListaFilmesComponent } from './shared/lista-filmes/lista-filmes.component';
+import { CardFilmeComponent } from './shared/card-filme/card-filme.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent],
+  declarations: [AppComponent, HomeComponent, ListaFilmesComponent, CardFilmeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
