@@ -12,8 +12,10 @@ export class FilmeService {
 
   constructor(private http: HttpClient) {}
 
-  public selecionarFilmesPopulares(): Observable<Filme[]> {
-    const url = this.API + 'popular';
+  public selecionarFilmesPopulares(
+    paginaAlterada: number
+  ): Observable<Filme[]> {
+    const url = this.API + 'popular' + '?page=' + paginaAlterada;
 
     return this.http.get<any>(url, this.obterHeadersAutorizacao()).pipe(
       map((res) => res.results),
@@ -21,8 +23,10 @@ export class FilmeService {
     );
   }
 
-  public selecionarFilmesBemAvaliados(): Observable<Filme[]> {
-    const url = this.API + 'top_rated';
+  public selecionarFilmesBemAvaliados(
+    paginaAlterada: number
+  ): Observable<Filme[]> {
+    const url = this.API + 'top_rated' + '?page=' + paginaAlterada;
 
     return this.http.get<any>(url, this.obterHeadersAutorizacao()).pipe(
       map((res) => res.results),

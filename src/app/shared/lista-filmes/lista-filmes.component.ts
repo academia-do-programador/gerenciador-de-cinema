@@ -8,6 +8,7 @@ import { FilmeService } from 'src/app/services/filme.service';
   styleUrls: ['./lista-filmes.component.css'],
 })
 export class ListaFilmesComponent {
+  page: number = 1;
   filmes: Filme[] = [];
 
   @Input() tipoLista: 'populares' | 'bem-avaliados' = 'populares';
@@ -15,13 +16,17 @@ export class ListaFilmesComponent {
   constructor(private filmeService: FilmeService) {}
 
   ngOnInit(): void {
+    this.carregarPagina(1);
+  }
+
+  carregarPagina(paginaAlterada: number) {
     if (this.tipoLista == 'populares') {
       this.filmeService
-        .selecionarFilmesPopulares()
+        .selecionarFilmesPopulares(paginaAlterada)
         .subscribe((resposta) => (this.filmes = resposta));
     } else {
       this.filmeService
-        .selecionarFilmesBemAvaliados()
+        .selecionarFilmesBemAvaliados(paginaAlterada)
         .subscribe((resposta) => (this.filmes = resposta));
     }
   }
