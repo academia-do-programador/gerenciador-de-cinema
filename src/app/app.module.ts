@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 import { HomeComponent } from './views/home/home.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],
@@ -18,6 +19,8 @@ import { HomeComponent } from './views/home/home.component';
       positionClass: 'toast-bottom-center',
       preventDuplicates: true,
     }),
+
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
