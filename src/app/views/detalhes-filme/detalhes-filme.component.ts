@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
 import { DetalhesFilme } from 'src/app/models/detalhes-filme';
 import { FilmeService } from 'src/app/services/filme.service';
 
@@ -14,11 +15,16 @@ export class DetalhesFilmeComponent implements OnInit {
 
   constructor(
     private filmeService: FilmeService,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-    this.filmeService.selecionarDetalhesFilme(5).subscribe((resposta) => {
+    const id = parseInt(this.route.snapshot.paramMap.get('id')!);
+
+    if (!id) return;
+
+    this.filmeService.selecionarDetalhesFilme(id).subscribe((resposta) => {
       this.filme = resposta;
 
       this.urlSeguroTrailer = this.sanitizer.bypassSecurityTrustResourceUrl(

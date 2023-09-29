@@ -1,6 +1,6 @@
 <div
   *ngIf="filme"
-  class="row justify-content-center justify-content-lg-start gap-3"
+  class="row justify-content-center justify-content-lg-start gap-3 mt-4"
 >
   <section aria-label="Cabeçalho" class="row">
     <div class="d-flex align-items-center">
@@ -79,7 +79,7 @@
           <p>
             {{ creditado.nome }}
           </p>
-          <span *ngIf="i < filme.escritores.length - 1">•</span>
+          <span *ngIf="i < filme.escritores.slice(0, 3).length - 1">•</span>
         </div>
       </div>
     </div>
@@ -100,7 +100,7 @@
           <p>
             {{ creditado.nome }}
           </p>
-          <span *ngIf="i < filme.atores.length - 1">•</span>
+          <span *ngIf="i < filme.atores.slice(0, 3).length - 1">•</span>
         </div>
       </div>
     </div>
