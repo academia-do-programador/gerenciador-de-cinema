@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { DetalhesFilme } from 'src/app/models/detalhes-filme';
 import { FilmeService } from 'src/app/services/filme.service';
 
@@ -9,14 +10,20 @@ import { FilmeService } from 'src/app/services/filme.service';
 })
 export class DetalhesFilmeComponent implements OnInit {
   filme: DetalhesFilme | undefined;
+  urlSeguroTrailer: SafeResourceUrl | undefined;
 
-  constructor(private filmeService: FilmeService) {}
+  constructor(
+    private filmeService: FilmeService,
+    private sanitizer: DomSanitizer
+  ) {}
 
   ngOnInit(): void {
-    this.filmeService
-      .selecionarDetalhesFilme(5)
-      .subscribe((resposta) => {
-        this.filme = resposta;
-      });
+    this.filmeService.selecionarDetalhesFilme(5).subscribe((resposta) => {
+      this.filme = resposta;
+
+      this.urlSeguroTrailer = this.sanitizer.bypassSecurityTrustResourceUrl(
+        this.filme.trailers[0].sourceUrl
+      );
+    });
   }
 }
