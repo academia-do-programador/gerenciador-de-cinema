@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,9 +14,17 @@ import { DetalhesFilmeComponent } from './views/detalhes-filme/detalhes-filme.co
 import { NavbarComponent } from './shared/navbar/navbar.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, ListaFilmesComponent, CardFilmeComponent, DetalhesFilmeComponent, NavbarComponent],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    ListaFilmesComponent,
+    CardFilmeComponent,
+    DetalhesFilmeComponent,
+    NavbarComponent,
+  ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     NgbModule,
     ToastrModule.forRoot({
