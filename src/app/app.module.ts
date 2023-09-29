@@ -9,9 +9,10 @@ import { HomeComponent } from './views/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ListaFilmesComponent } from './shared/lista-filmes/lista-filmes.component';
 import { CardFilmeComponent } from './shared/card-filme/card-filme.component';
+import { DetalhesFilmeComponent } from './views/detalhes-filme/detalhes-filme.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, ListaFilmesComponent, CardFilmeComponent],
+  declarations: [AppComponent, HomeComponent, ListaFilmesComponent, CardFilmeComponent, DetalhesFilmeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
